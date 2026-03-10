@@ -38,6 +38,8 @@ export default function BoletasPage() {
       .eq("id_despacho", d.id_despacho)
       .single();
 
+    if (!despacho) return;
+
     const { data: colab } = await supabase
       .from("colaboradores")
       .select("nombre, apellido, id_departamento, id_puesto")
